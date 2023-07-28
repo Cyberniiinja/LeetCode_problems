@@ -1,0 +1,33 @@
+class SubString:
+    def __init__(self,str):
+        self.str=str
+        seen=[]
+        seen2=[]
+        index1=[]
+        substringslen=[]
+        i=0
+        for c in str:
+            if c in seen:
+                c2=c
+                #print("true")
+                seen2.append(c2)
+                index1.append(i)
+            #else:
+                #print("false",i)
+            seen.append(c)
+            i=i+1
+
+        ar1=[]
+        for i in range(len(seen)):
+            for j in index1:
+                if seen[i]==seen[j] and i not in ar1 and j>i:
+                    substringslen.append(j-i)
+                    ar1.append(i)
+        #print(seen)
+        #print(seen2)
+        #print(index1)
+        print(max(substringslen))
+##test
+s1=SubString("abcabcbb")
+s2=SubString("bbbbbbb")
+s3=SubString("pwwkew")
